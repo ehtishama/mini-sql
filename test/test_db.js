@@ -1,3 +1,4 @@
+import { createIndex, searchWithIndex } from "../lib/indexing.js";
 import { insertInto, select } from "../lib/query.js";
 import { createTable } from "../lib/schema.js";
 import { logger } from "../logger/logger.js";
@@ -20,6 +21,7 @@ function testInsertInto_v1() {
     const insertQuery_3 = `INSERT INTO users (id, name, age, student) VALUES (103, "John", 22, false)`;
     const insertQuery_4 = `INSERT INTO users (id, name, age, student) VALUES (104, "Tom", 28, true)`;
     const insertQuery_5 = `INSERT INTO users (id, name, age, student) VALUES (105, "MLH", 10, false)`;
+    const insertQuery_6 = `INSERT INTO users (id, name, age, student) VALUES (106, "GHW", 10, false)`;
 
     try {
         insertInto(insertQuery_1);
@@ -27,6 +29,7 @@ function testInsertInto_v1() {
         insertInto(insertQuery_3);
         insertInto(insertQuery_4);
         insertInto(insertQuery_5);
+        insertInto(insertQuery_6);
         logger("[TEST]", pc.magenta, console.info, "Insert Into test passed.\n");
     } catch (error) {
         logger("[TEST]", pc.red, console.error, "Insert Into test failed.\n", error);
@@ -46,10 +49,32 @@ function testSelect_v1() {
     }
 }
 
+function testCreateIndex_v1() {
+    try {
+        createIndex("users", "name");
+        createIndex("users", "age");
+        logger("[TEST]", pc.magenta, console.info, "Create index test passed\n");
+    } catch (error) {
+        logger("[TEST]", pc.magenta, console.error, "Create index failed\n", error);
+    }
+}
+
+function testSearchWithIndex_v1() {
+    try {
+        searchWithIndex("users", "name", "John");
+        searchWithIndex("users", "age", 10);
+        logger("[TEST]", pc.magenta, console.info, "Search with index test passed\n");
+    } catch (error) {
+        logger("[TEST]", pc.magenta, console.error, "Search with index failed\n", error);
+    }
+}
+
 export const main = () => {
     testCreateTable_v1();
     testInsertInto_v1();
     testSelect_v1();
+    testCreateIndex_v1();
+    testSearchWithIndex_v1();
 };
 
 main();
