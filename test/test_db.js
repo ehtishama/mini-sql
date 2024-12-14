@@ -1,3 +1,4 @@
+import { backupDatabase, restoreDatabase } from "../lib/backup.js";
 import { createIndex, searchWithIndex } from "../lib/indexing.js";
 import { insertInto, select } from "../lib/query.js";
 import { createTable } from "../lib/schema.js";
@@ -55,7 +56,7 @@ function testCreateIndex_v1() {
         createIndex("users", "age");
         logger("[TEST]", pc.magenta, console.info, "Create index test passed\n");
     } catch (error) {
-        logger("[TEST]", pc.magenta, console.error, "Create index failed\n", error);
+        logger("[TEST]", pc.red, console.error, "Create index failed\n", error);
     }
 }
 
@@ -65,7 +66,25 @@ function testSearchWithIndex_v1() {
         searchWithIndex("users", "age", 10);
         logger("[TEST]", pc.magenta, console.info, "Search with index test passed\n");
     } catch (error) {
-        logger("[TEST]", pc.magenta, console.error, "Search with index failed\n", error);
+        logger("[TEST]", pc.red, console.error, "Search with index failed\n", error);
+    }
+}
+
+function testBackupDatabase_v1() {
+    try {
+        backupDatabase("./backup");
+        logger("[TEST]", pc.magenta, console.info, "Database backup test passed\n");
+    } catch (error) {
+        logger("[TEST]", pc.red, console.error, "Database backup test failed\n", error);
+    }
+}
+
+function testRestoreDatabase_v1() {
+    try {
+        restoreDatabase("./backup");
+        logger("[TEST]", pc.magenta, console.info, "Database restore test passed\n");
+    } catch (error) {
+        logger("[TEST]", pc.red, console.error, "Database restore test failed\n", error);
     }
 }
 
@@ -75,6 +94,8 @@ export const main = () => {
     testSelect_v1();
     testCreateIndex_v1();
     testSearchWithIndex_v1();
+    testBackupDatabase_v1();
+    testRestoreDatabase_v1();
 };
 
 main();
