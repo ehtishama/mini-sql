@@ -1,5 +1,17 @@
-import { logDebug, logError, logInfo, logSuccess } from "./logger/logger.js";
-logError("This is my error");
-logInfo("My info");
-logSuccess("My success");
-logDebug("My debug");
+// Storage
+export { DATABASE_PATH, getTableFilePath, readJSON, writeJSON } from "./lib/storage.js";
+
+// Schema
+export { createTable } from "./lib/schema.js";
+
+// Queries
+export { insertInto, select } from "./lib/query.js";
+
+// Indexing
+export { createIndex, searchWithIndex } from "./lib/indexing.js";
+
+// Backup
+export { backupDatabase, restoreDatabase } from "./lib/backup.js";
+
+// Locks
+export { lockTable, performWithLock } from "./lib/locks.js";
