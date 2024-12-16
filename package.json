@@ -1,24 +1,27 @@
 {
-  "name": "mini-sql",
-  "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@eslint/js": "^9.16.0",
-    "eslint": "^9.16.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "globals": "^15.13.0"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.7",
-    "picocolors": "^1.1.1"
-  }
+    "name": "mini-sql",
+    "version": "1.0.0",
+    "description": "A light-weight file based sql database in nodejs.",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint .",
+        "lint-fix": "eslint --fix .",
+        "test": "node test/test_db.js"
+    },
+    "keywords": ["sqlite", "sql", "node", "javascirpt"],
+    "author": "@ehtishama",
+    "license": "ISC",
+    "devDependencies": {
+        "@eslint/js": "^9.16.0",
+        "eslint": "^9.16.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "globals": "^15.13.0"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "picocolors": "^1.1.1"
+    }
 }
+

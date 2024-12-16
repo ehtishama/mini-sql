@@ -1,5 +1,5 @@
 // Storage
-export { DATABASE_PATH, getTableFilePath, readJSON, writeJSON } from "./lib/storage.js";
+export { getTableFilePath, readJSON, writeJSON } from "./lib/storage.js";
 
 // Schema
 export { createTable } from "./lib/schema.js";
