@@ -1,6 +1,14 @@
-# mini-sql-db
+> ⚠️ **Warning**
+> 
+> It's a fun project meant for learning and exploration!
+> 
+> This project was built following a Global Hack Week tutorial by [@utk09-NCL](https://github.com/utk09-NCL).
+> Original code can be found [here](https://github.com/utk09-NCL/mini-sql-db) and tutorial videos can be accessed [here](https://www.youtube.com/watch?v=Cysrhs6uxGo&list=PLPDgudJ_VDUf_lp8RB1ukFQj6UZumKQqA).  
 
-A file-based SQL database written in JavaScript. Uses SQLite-like syntax for querying and managing data.
+
+# mini-sql
+
+A simple file-based SQL database in JavaScript. It uses SQL like syntax for querying and managing data.
 
 ## Folder Structure
 
